@@ -4,6 +4,28 @@
     <meta charset="utf-8">
     <title>Formulario Senai</title>
     <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript">
+        function mascaraTelefone(telefone){
+            if(telefone.value.length == 0)
+                telefone.value = '(' + telefone.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
+            if(telefone.value.length == 3)
+                telefone.value = telefone.value + ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+
+            if(telefone.value.length == 9)
+                telefone.value = telefone.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
+
+        }
+        function mascaraCelular(celular){
+            if(celular.value.length == 0)
+                celular.value = '(' + celular.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
+            if(celular.value.length == 3)
+                celular.value = celular.value + ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+
+            if(celular.value.length == 10)
+                celular.value = celular.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
+
+        }
+    </script>
   </head>
   <body>
     <header>
@@ -62,11 +84,11 @@
               <div class="formatContatos">
                 <div class="infoUsuario">
                   <label>Telefone</label>
-                  <input type="tel" name="" value="" placeholder="(00) 0000-0000">
+                  <input type="text" name="telefone" id="telefone" size="20" maxlength="14" onkeypress="mascaraTelefone(this)"placeholder="(00)0000-0000">
                 </div>
                 <div class="infoUsuario">
                   <label>Celular</label>
-                  <input type="tel" name="" value="" placeholder="(00) 00000-0000">
+                  <input id="celular" type="tel" name="" value="" placeholder="(00) 00000-0000" maxlength="15" onkeypress="mascaraCelular(this)">
                 </div>
                 <div class="infoUsuario">
                   <label>E-mail</label>
@@ -84,5 +106,6 @@
         </form>
       </div>
     </main>
+
   </body>
 </html>
