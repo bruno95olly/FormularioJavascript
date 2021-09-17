@@ -4,28 +4,10 @@
     <meta charset="utf-8">
     <title>Formulario Senai</title>
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript">
-        function mascaraTelefone(telefone){
-            if(telefone.value.length == 0)
-                telefone.value = '(' + telefone.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-            if(telefone.value.length == 3)
-                telefone.value = telefone.value + ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
-
-            if(telefone.value.length == 9)
-                telefone.value = telefone.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
-
-        }
-        function mascaraCelular(celular){
-            if(celular.value.length == 0)
-                celular.value = '(' + celular.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
-            if(celular.value.length == 3)
-                celular.value = celular.value + ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
-
-            if(celular.value.length == 10)
-                celular.value = celular.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
-
-        }
-    </script>
+    <script src="js/mascara.js" defer></script>
+    <script src="js/api_cep.js" defer></script>
+    <script src="js/validarEmail.js" defer></script>
+    <script src="js/preencherNome.js" defer></script>
   </head>
   <body>
     <header>
@@ -41,15 +23,15 @@
               <div class="formatDados">
                 <div class="infoUsuario">
                   <label>Nome</label>
-                  <input type="text" name="" value="" placeholder="Digite seu nome" maxlength="20">
+                  <input id="nome" type="text" name="" value="" placeholder="Digite seu nome" maxlength="20">
                 </div>
                 <div class="infoUsuario">
                   <label>Sobrenome</label>
-                  <input type="text" name="" value="" placeholder="Digite seu sobrenome" maxlength="50">
+                  <input id="sobrenome" type="text" name="" value="" placeholder="Digite seu sobrenome" maxlength="50">
                 </div>
                 <div class="infoUsuario">
                   <label>Nome Completo</label>
-                  <input type="text" name="" value="" class="formatInput">
+                  <input id="nomeCompleto" type="text" name="" value="" class="formatInput" readonly>
                 </div>
 
               </div>
@@ -59,11 +41,11 @@
               <div class="formatEndereco">
                 <div class="infoUsuario">
                   <label>CEP</label>
-                  <input type="text" name="" value="" placeholder="00000-00">
+                  <input id="cep" type="text" name="" value="" maxlength="9" placeholder="00000-000" onkeypress="mascaraCep(this)">
                 </div>
                 <div class="infoUsuario">
                   <label>Rua</label>
-                  <input type="text" name="" value="">
+                  <input id="rua" type="text" name="" value="">
                 </div>
                 <div class="infoUsuario">
                   <label>Numero</label>
@@ -71,11 +53,11 @@
                 </div>
                 <div class="infoUsuario">
                   <label>Bairro</label>
-                  <input type="text" name="" value="">
+                  <input type="text" name="" value="" id="bairro">
                 </div>
                 <div class="infoUsuario">
                   <label>Cidade</label>
-                  <input type="text" name="" value="" class="formatInput">
+                  <input type="text" name="" value="" class="formatInput" id="cidade">
                 </div>
               </div>
             </div>
@@ -84,20 +66,22 @@
               <div class="formatContatos">
                 <div class="infoUsuario">
                   <label>Telefone</label>
-                  <input type="text" name="telefone" id="telefone" size="20" maxlength="14" onkeypress="mascaraTelefone(this)"placeholder="(00)0000-0000">
+                  <input type="text" name="telefone" id="telefone" size="20" maxlength="13" onkeypress="mascaraTelefone(this)"placeholder="(00)0000-0000">
                 </div>
                 <div class="infoUsuario">
                   <label>Celular</label>
-                  <input id="celular" type="tel" name="" value="" placeholder="(00) 00000-0000" maxlength="15" onkeypress="mascaraCelular(this)">
+                  <input id="celular" type="tel" name="" value="" placeholder="(00)00000-0000" maxlength="14" onkeypress="mascaraCelular(this)">
                 </div>
                 <div class="infoUsuario">
                   <label>E-mail</label>
-                  <input type="email" name="" value="" placeholder="seunome@dominio.com">
+                  <input id="email" type="email" name="" value="" placeholder="seunome@dominio.com">
                 </div>
 
                 <div class="infoUsuario">
                   <label>Confirme seu E-mail</label>
-                  <input type="email" name="" value="">
+                  <input type="email" name="" value="" id="emailC">
+                  <br>
+                  <span id="error-email"></span>
                 </div>
               </div>
             </div>
