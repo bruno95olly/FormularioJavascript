@@ -23,11 +23,11 @@
               <div class="formatDados">
                 <div class="infoUsuario">
                   <label>Nome</label>
-                  <input id="nome" type="text" name="" value="" placeholder="Digite seu nome" maxlength="20">
+                  <input id="nome" type="text" name="" value="" placeholder="Digite seu nome" maxlength="20" onkeyup="caracteresInvalidos(this)">
                 </div>
                 <div class="infoUsuario">
                   <label>Sobrenome</label>
-                  <input id="sobrenome" type="text" name="" value="" placeholder="Digite seu sobrenome" maxlength="50">
+                  <input id="sobrenome" type="text" name="" value="" placeholder="Digite seu sobrenome" maxlength="50" onkeyup="caracteresInvalidos(this)">
                 </div>
                 <div class="infoUsuario">
                   <label>Nome Completo</label>
@@ -41,7 +41,7 @@
               <div class="formatEndereco">
                 <div class="infoUsuario">
                   <label>CEP</label>
-                  <input id="cep" type="text" name="" value="" maxlength="9" placeholder="00000-000" onkeypress="mascaraCep(this)">
+                  <input id="cep" type="text" name="" value="" maxlength="9" placeholder="00000-000" onkeyup="mascaraCep(this)">
                 </div>
                 <div class="infoUsuario">
                   <label>Rua</label>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="infoUsuario">
                   <label>Numero</label>
-                  <input type="text" name="" value="">
+                  <input type="text" name="" value="" id="numero">
                 </div>
                 <div class="infoUsuario">
                   <label>Bairro</label>
@@ -66,11 +66,15 @@
               <div class="formatContatos">
                 <div class="infoUsuario">
                   <label>Telefone</label>
-                  <input type="text" name="telefone" id="telefone" size="20" maxlength="13" onkeypress="mascaraTelefone(this)"placeholder="(00)0000-0000">
+                  <input type="text" name="telefone" id="telefone" size="20" maxlength="13" onkeyup="mascaraTelefone(this)"placeholder="(00)0000-0000">
+                </div>
+                <div class="infoUsuario">
+                  <label>CPF</label>
+                  <input type="text" name="cpf" id="cpf" size="20" maxlength="15" onkeyup="mascaraCpf(this)"placeholder="000.000.000-00">
                 </div>
                 <div class="infoUsuario">
                   <label>Celular</label>
-                  <input id="celular" type="tel" name="" value="" placeholder="(00)00000-0000" maxlength="14" onkeypress="mascaraCelular(this)">
+                  <input id="celular" type="tel" name="" value="" placeholder="(00)00000-0000" maxlength="14" onkeyup="mascaraCelular(this)">
                 </div>
                 <div class="infoUsuario">
                   <label>E-mail</label>
@@ -86,7 +90,7 @@
               </div>
             </div>
           </div>
-          <button type="button" name="button">Enviar</button>
+          <button type="submit" name="button">Enviar</button>
         </form>
       </div>
     </main>
