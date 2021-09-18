@@ -12,6 +12,5 @@ function caracteresInvalidos(nome){
   nome.value = nome.value.replace(/[^\D]/g, "")
 
 }
-
 document.getElementById('nome').addEventListener('focusout', nomeCompleto);
 document.getElementById('sobrenome').addEventListener('focusout', nomeCompleto);

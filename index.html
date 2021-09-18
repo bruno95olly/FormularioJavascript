@@ -8,6 +8,7 @@
     <script src="js/api_cep.js" defer></script>
     <script src="js/validarEmail.js" defer></script>
     <script src="js/preencherNome.js" defer></script>
+    <script src="js/tratamentoErros.js" defer></script>
   </head>
   <body>
     <header>
@@ -69,10 +70,6 @@
                   <input type="text" name="telefone" id="telefone" size="20" maxlength="13" onkeyup="mascaraTelefone(this)"placeholder="(00)0000-0000">
                 </div>
                 <div class="infoUsuario">
-                  <label>CPF</label>
-                  <input type="text" name="cpf" id="cpf" size="20" maxlength="15" onkeyup="mascaraCpf(this)"placeholder="000.000.000-00">
-                </div>
-                <div class="infoUsuario">
                   <label>Celular</label>
                   <input id="celular" type="tel" name="" value="" placeholder="(00)00000-0000" maxlength="14" onkeyup="mascaraCelular(this)">
                 </div>
@@ -90,7 +87,7 @@
               </div>
             </div>
           </div>
-          <button type="submit" name="button">Enviar</button>
+          <button type="submit" id="botao" onclick="tratamentoErros()" name="button">Enviar</button>
         </form>
       </div>
     </main>

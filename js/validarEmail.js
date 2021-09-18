@@ -1,4 +1,4 @@
-function validarEmail(){
+function emailIncorreto(){
   const email = document.getElementById('email').value
   const emailConfirmacao = document.getElementById('emailC').value
   const error = document.getElementById('error-email');
@@ -11,5 +11,5 @@ function validarEmail(){
 
   }
 }
-document.getElementById('email').addEventListener('focusout', validarEmail);
-document.getElementById('emailC').addEventListener('focusout', validarEmail);
+document.getElementById('email').addEventListener('focusout', emailIncorreto);
+document.getElementById('emailC').addEventListener('focusout', emailIncorreto);
