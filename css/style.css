@@ -25,6 +25,7 @@ main{
   flex-direction: column;
   align-items: center;
   padding: 20px 0px;
+  width: 100%;
 }
 #error-email{
   color: crimson;
@@ -34,7 +35,10 @@ main{
 }
 .formulario{
   height: auto;
-  width: 800px;
+  height: auto;
+  width: 90%;
+  max-width: 850px;
+  margin-left: 10%;
 }
 .formSenai{
   display: flex;
