@@ -26,17 +26,19 @@ const dadosPessoa = [
 //valor de todos os objetos, sem necessariamente
 //escrever um por um, na estrutura do if
 //-----------------------------------------------
-dadosPessoa.forEach(function(dados){
-  if (dados.nome == "" || dados.sobrenome == "" ||dados.cep == "" ||dados.bairro == "" ||dados.rua == "" ||dados.numero == "" ||dados.cidade == "" ||dados.telefone == "" ||dados.celular == "" ||dados.email == "" ||dados.confimarEmail == ""){
+const eVazio = (dado) => dado == ""
+const dados = dadosPessoa.filter(eVazio)
+
+  if (dados.length == 0){
     alert("Preencha todos os campos");
   }
-  else if(dados.cep.length != 9){
+  else if(dadosPessoa.cep.length != 9){
       alert("O Cep que voce digitou é invalido")
   }
-  else if(dados.celular.length != 14){
+  else if(dadosPessoa.celular.length != 14){
       alert("O celular que voce digitou é invalido")
   }
-  else if(dados.telefone.length != 13){
+  else if(dadosPessoa.telefone.length != 13){
       alert("O telefone que voce digitou é invalido")
   }
   else if(dados.confimarEmail != dados.email){
@@ -45,7 +47,7 @@ dadosPessoa.forEach(function(dados){
   else{
     alert("Obrigado, seu formulario foi enviado");
   }
-});
+
 
 
 /*
